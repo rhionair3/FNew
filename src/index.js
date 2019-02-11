@@ -5,6 +5,7 @@ import './index.css';
 import Dashboard from './Dashboard/views/Dashboard';
 import FormRegister from './Franchise/views/FranchiseForm';
 import Franchiselist from './Franchise/views/Franchiselist';
+import FranchiseDetails from './Franchise/views/FranchiseDetails';
 import Cartlist from './Cart/views/Cartlist';
 import FormCart from './Cart/views/Cartform';
 import Cheflist from './Chef/views/Cheflist';
@@ -16,6 +17,7 @@ ReactDOM.render(<Router>
                         <Route exact path='/' component={Dashboard} />
                         <Route exact path='/franchise' component={Franchiselist} />
                         <Route exact path='/franchise/registration/:id' component={FormRegister} />
+                        <Route exact path='/franchise/details/:id' component={FranchiseDetails} />
                         <Route exact path='/cart' component={Cartlist} />
                         <Route exact path='/cart/formcart/:id' component={FormCart} />
                         <Route exact path='/chef' component={Cheflist} />

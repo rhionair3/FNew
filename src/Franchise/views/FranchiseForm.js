@@ -129,23 +129,6 @@ const styles = theme => ({
   }
 });
 
-const status = [{
-    value: 'ACTIVE',
-    label: 'ACTIVE',
-  },
-  {
-    value: 'INACTIVE',
-    label: 'INACTIVE',
-  },
-  {
-    value: 'ONPROGRESS',
-    label: 'ON PROGRESS',
-  },
-  {
-    value: 'READY',
-    label: 'READY',
-  }
-];
 
 class FranchiseForm extends React.Component {
   constructor(props) {
@@ -157,7 +140,8 @@ class FranchiseForm extends React.Component {
     };
   }
   componentDidMount() {
-    fetch('http://3.1.84.35:8080/franchise/api/v1/franchise/show?id=' + this.props.match.params.id)
+    if (this.props.match.params.id > 0) {
+      fetch('http://3.1.84.35:8080/franchise/api/v1/franchise/show?id=' + this.props.match.params.id)
       .then(response => {
         return response.json();
       }).then(result => {
@@ -171,6 +155,16 @@ class FranchiseForm extends React.Component {
           dataFranchise: result.data
         });
       });
+    } else {
+      this.setState({
+        id: "",
+        name: "",
+        address: "",
+        mobileNo: "",
+        status: "",
+        dataFranchise: ""
+      });
+    }
   }
 
   handleDrawerOpen = () => {

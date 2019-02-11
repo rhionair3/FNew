@@ -19,6 +19,7 @@ import { Datalist } from '../components/Datalist';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {blue, red, lime, amber, grey} from '@material-ui/core/colors/';
+import {People, HowToReg, PersonAddDisabled, AssignmentInd } from '@material-ui/icons';
 
 const drawerWidth = 240;
 
@@ -199,32 +200,75 @@ class Cheflist extends React.Component {
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
                   <Grid container spacing={8}>
-                    <Grid item xs={8} className={classNames({[classes.cardLeft]: true})}>Test</Grid>
-                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardPrimary]: true, [classes.cardTextWhite]: true})}>Test</Grid>
+                    <Grid item xs={8} className={classNames(classes.cardLeft, classes.textLeft)}>
+                      <Typography component="h1" variant="h6" color="inherit" noWrap >
+                        Data Koki
+                      </Typography>
+                      <Typography component="h1" variant="subheading" color="inherit" noWrap >
+                        189
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardPrimary]: true, [classes.cardTextWhite]: true})}>
+                      <Typography component="h1" variant="subheading" color="inherit" noWrap >
+                        <People style={{fontSize: 65}}/>
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </Paper>
               </Grid>
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
                   <Grid container spacing={8}>
-                    <Grid item xs={8} className={classNames({[classes.cardLeft]: true})}>Test</Grid>
-                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardSuccess]: true, [classes.cardTextWhite]: true})}>Test</Grid>
+                    <Grid item xs={8} className={classNames(classes.cardLeft, classes.textLeft)}>
+                      <Typography component="h1" variant="h6" color="inherit" noWrap >
+                        Data Koki Aktif
+                      </Typography>
+                      <Typography component="h1" variant="subheading" color="inherit" noWrap >
+                        40
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardSuccess]: true, [classes.cardTextWhite]: true})}>
+                      <Typography component="h1" variant="subheading" color="inherit" noWrap >
+                        <HowToReg style={{fontSize: 65}}/>
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </Paper>
               </Grid>
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
                   <Grid container spacing={8}>
-                    <Grid item xs={8} className={classNames({[classes.cardLeft]: true})}>Test</Grid>
-                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardWarning]: true, [classes.cardTextWhite]: true})}>Test</Grid>
+                    <Grid item xs={8} className={classNames(classes.cardLeft, classes.textLeft)}>
+                      <Typography component="h1" variant="h6" color="inherit" noWrap >
+                        Dalam Training
+                      </Typography>
+                      <Typography component="h1" variant="subheading" color="inherit" noWrap >
+                        122
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardWarning]: true, [classes.cardTextWhite]: true})}>
+                      <Typography component="h1" variant="subheading" color="inherit" noWrap >
+                        <AssignmentInd style={{fontSize: 65}}/>
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </Paper>
               </Grid>
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
                   <Grid container spacing={8}>
-                    <Grid item xs={8} className={classNames({[classes.cardLeft]: true})}>Test</Grid>
-                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardDanger]: true, [classes.cardTextWhite]: true})}>Test</Grid>
+                    <Grid item xs={8} className={classNames(classes.cardLeft, classes.textLeft)}>
+                      <Typography component="h1" variant="h6" color="inherit" noWrap >
+                        Tidak Lulus
+                      </Typography>
+                      <Typography component="h1" variant="subheading" color="inherit" noWrap >
+                        27
+                      </Typography></Grid>
+                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardDanger]: true, [classes.cardTextWhite]: true})}>
+                      <Typography component="h1" variant="subheading" color="inherit" noWrap >
+                        <PersonAddDisabled style={{fontSize: 65}}/>
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </Paper>
               </Grid>

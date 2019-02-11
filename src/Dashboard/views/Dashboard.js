@@ -19,6 +19,7 @@ import { Cartlist } from '../components/Cartlist';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {blue, red, lime, amber, grey} from '@material-ui/core/colors/';
+import {ShoppingCart, AccountCircle, People, AssignmentInd } from '@material-ui/icons';
 
 const drawerWidth = 240;
 
@@ -128,6 +129,9 @@ const styles = theme => ({
   },
   cardTextWhite: {
     color: grey[50]
+  },
+  textLeft: {
+    textAlign: 'left'
   }
 });
 
@@ -199,32 +203,75 @@ class Dashboard extends React.Component {
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
                   <Grid container spacing={8}>
-                    <Grid item xs={8} className={classNames({[classes.cardLeft]: true})}>Test</Grid>
-                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardPrimary]: true, [classes.cardTextWhite]: true})}>Test</Grid>
+                    <Grid item xs={8} className={classNames(classes.cardLeft, classes.textLeft)}>
+                      <Typography component="h1" variant="h6" color="inherit" noWrap >
+                        Data Franchise
+                      </Typography>
+                      <Typography component="h1" variant="subeading" color="inherit" noWrap >
+                        60
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardPrimary]: true, [classes.cardTextWhite]: true})}>
+                      <Typography component="h1" variant="subeading" color="inherit" noWrap >
+                        <ShoppingCart style={{fontSize: 65}}/>
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </Paper>
               </Grid>
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
                   <Grid container spacing={8}>
-                    <Grid item xs={8} className={classNames({[classes.cardLeft]: true})}>Test</Grid>
-                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardSuccess]: true, [classes.cardTextWhite]: true})}>Test</Grid>
+                    <Grid item xs={8} className={classNames(classes.cardLeft, classes.textLeft)}>
+                      <Typography component="h1" variant="h6" color="inherit" noWrap >
+                        Data Gerobak
+                      </Typography>
+                      <Typography component="h1" variant="subeading" color="inherit" noWrap >
+                        82
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardSuccess]: true, [classes.cardTextWhite]: true})}>
+                      <Typography component="h1" variant="subeading" color="inherit" noWrap >
+                        <AccountCircle style={{fontSize: 65}}/>
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </Paper>
               </Grid>
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
                   <Grid container spacing={8}>
-                    <Grid item xs={8} className={classNames({[classes.cardLeft]: true})}>Test</Grid>
-                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardWarning]: true, [classes.cardTextWhite]: true})}>Test</Grid>
+                    <Grid item xs={8} className={classNames(classes.cardLeft, classes.textLeft)}>
+                      <Typography component="h1" variant="h6" color="inherit" noWrap >
+                        Data Koki
+                      </Typography>
+                      <Typography component="h1" variant="subeading" color="inherit" noWrap >
+                        189
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardWarning]: true, [classes.cardTextWhite]: true})}>
+                      <Typography component="h1" variant="subeading" color="inherit" noWrap >
+                        <People style={{fontSize: 65}}/>
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </Paper>
               </Grid>
               <Grid item xs={3}>
                 <Paper className={classes.paper}>
                   <Grid container spacing={8}>
-                    <Grid item xs={8} className={classNames({[classes.cardLeft]: true})}>Test</Grid>
-                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardDanger]: true, [classes.cardTextWhite]: true})}>Test</Grid>
+                    <Grid item xs={8} className={classNames(classes.cardLeft, classes.textLeft)}>
+                      <Typography component="h1" variant="h6" color="inherit" noWrap >
+                        Data On Training
+                      </Typography>
+                      <Typography component="h1" variant="subeading" color="inherit" noWrap >
+                        189
+                      </Typography></Grid>
+                    <Grid item xs={4} className={classNames({[classes.cardLeft]: true, [classes.cardDanger]: true, [classes.cardTextWhite]: true})}>
+                      <Typography component="h1" variant="subeading" color="inherit" noWrap >
+                        <AssignmentInd style={{fontSize: 65}}/>
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </Paper>
               </Grid>

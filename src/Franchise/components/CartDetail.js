@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
 import Paper from '@material-ui/core/Paper';
+import format from 'date-fns/format';
 
 const styles = theme => ({
     root: {
@@ -28,17 +28,27 @@ const styles = theme => ({
 });
 
 class CartDetail extends React.Component {
-    state = {
-        ftype: '',
-        name: 'hai',
-    };
+    constructor(props) {
+        super(props);
+        const getDate = new Date();
+        this.state = {
+            ftype: '',
+            name: 'hai',
+            selectedDate: format(getDate, 'YYYY-MM-DD'),
+        };
+    }
 
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         });
     };
+    handleDateChange = date => {
+        this.setState({ selectedDate: date });
+    };
+
     render() {
+        const { selectedDate } = this.state;
         return (
             <React.Fragment>
             <Typography variant="h6" gutterBottom>
@@ -54,13 +64,13 @@ class CartDetail extends React.Component {
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} md={12}>
-                                <TextField required id="price" label="Harga Satuan" fullWidth />
+                                <TextField required id="price" label="Harga Satuan" fullWidth margin="dense" variant="outlined"/>
                             </Grid>
                             <Grid item xs={12} md={12}>
-                                <TextField required id="cardNumber" label="Jumlah Gerobak" fullWidth />
+                                <TextField required id="cardNumber" label="Jumlah Gerobak" fullWidth  margin="dense" variant="outlined"/>
                             </Grid>
                             <Grid item xs={12} md={12} style={{marginBottom: 20}}>
-                                <TextField required multiline rows="4" label="Jumlah Gerobak" fullWidth />
+                                <TextField required multiline rows="4" label="Jumlah Gerobak" fullWidth  margin="dense" variant="outlined"/>
                             </Grid>
                         </Grid>
                     </Paper>
@@ -74,13 +84,13 @@ class CartDetail extends React.Component {
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} md={12}>
-                                <TextField required id="price" label="Harga Satuan" fullWidth />
+                                <TextField required id="price" label="Harga Satuan" fullWidth  margin="dense" variant="outlined"/>
                             </Grid>
                             <Grid item xs={12} md={12}>
-                                <TextField required id="cardNumber" label="Jumlah Gerobak" fullWidth />
+                                <TextField required id="cardNumber" label="Jumlah Gerobak" fullWidth  margin="dense" variant="outlined"/>
                             </Grid>
                             <Grid item xs={12} md={12} style={{marginBottom: 20}}>
-                                <TextField required multiline rows="4" label="Jumlah Gerobak" fullWidth />
+                                <TextField required multiline rows="4" label="Jumlah Gerobak" fullWidth  margin="dense" variant="outlined"/>
                             </Grid>
                         </Grid>
                     </Paper>
@@ -94,37 +104,49 @@ class CartDetail extends React.Component {
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} md={6}>
-                                <FormControl style={{width:'100%'}}>
-                                <InputLabel>Pilih Pengiriman</InputLabel>
-                                <Select
+                                <TextField
                                     value={this.state.ftype}
                                     onChange={this.handleChange}
+                                    select
                                     inputProps={{
                                     name: 'ftype',
                                     }}
+                                    margin = "dense"
+                                    variant = "outlined"
+                                    fullWidth
                                 >
                                     <MenuItem value="">
                                     <em>Pilih</em>
                                     </MenuItem>
                                     <MenuItem value={20}>Diambil</MenuItem>
                                     <MenuItem value={30}>Diantar</MenuItem>
-                                </Select>
-                            </FormControl>
+                                </TextField>
                             </Grid>
                             <Grid item xs={12} md={6}>
-                                <TextField required id="tglPengambilan" label="Tanggal Pengambilan" fullWidth />
+                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                    <DatePicker
+                                        value={selectedDate}
+                                        onChange={this.handleDateChange} 
+                                        required 
+                                        id="tglPengambilan" 
+                                        label="Tanggal Pengambilan" 
+                                        fullWidth 
+                                        margin = "dense"
+                                        variant = "outlined"
+                                    />
+                                </MuiPickersUtilsProvider>
                             </Grid>
                             <Grid item xs={12} md={12}>
-                                <TextField required id="namaPenerima" label="Nama Penerima" fullWidth />
+                                <TextField required id="namaPenerima" label="Nama Penerima" fullWidth  margin="dense" variant="outlined"/>
                             </Grid>
                             <Grid item xs={12} md={6}>
-                                <TextField required id="noTelp" label="Nomor Telepon Penerima" fullWidth />
+                                <TextField required id="noTelp" label="Nomor Telepon Penerima" fullWidth  margin="dense" variant="outlined"/>
                             </Grid>
                             <Grid item xs={12} md={6}>
-                                <TextField required id="noTelp" label="Nomor Telepon Seluler Penerima" fullWidth />
+                                <TextField required id="noTelp" label="Nomor Telepon Seluler Penerima" fullWidth  margin="dense" variant="outlined"/>
                             </Grid>
                             <Grid item xs={12} md={12} style={{marginBottom: 20}}>
-                                <TextField required multiline rows="4" label="Alamat penerima" fullWidth />
+                                <TextField required multiline rows="4" label="Alamat penerima" fullWidth  margin="dense" variant="outlined"/>
                             </Grid>
                         </Grid>
                     </Paper>
